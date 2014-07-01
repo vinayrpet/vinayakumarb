@@ -11,5 +11,9 @@ define('INSTALL_ROOT_DIR', dirname(__FILE__) . DS);
 
 //required directories
 define('CONFIG_DIR', INSTALL_ROOT_DIR . 'config' . DS);
+//Library directories
+define('LIB_DIR', INSTALL_ROOT_DIR . 'lib' . DS);
 
 ?>
+
+Hello
