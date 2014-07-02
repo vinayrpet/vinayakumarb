@@ -18,7 +18,7 @@ class AppSession {
    * Return the instance of the AppSession to maintain the details of the 
    session
    */
-  public function getInstance() {
+  public static function getInstance() {
     if( self::$instance === null ){
       self::$instance = new self();
     }
