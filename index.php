@@ -14,7 +14,7 @@ define ( 'LIB_DIR', INSTALL_ROOT_DIR . 'lib' . DS );
 
 require_once CONFIG_DIR . 'init.php';
 
-AppSession::getInstance () -- > start ();
+AppSession::getInstance()->start();
 
 $app = Application::getInstance ();
 $app->init ();

@@ -29,6 +29,16 @@ class Application {
   }
 
   public function init() {
+    // router init - need to set current page uri and base url
+    $router = Router::getInstance ();
+    $router->setBaseUrl ( APP_URL_HOME );
+    $uri = Request::getInstance ()->getRequestUri ();
+    $uri = StringUtil::removeGetParamsFromURI ( $uri );
+    $router->setCurrentUri ( $uri );
+    
+    // init plugins
+    $pluginManager = PluginManager::getInstance ();
+    $pluginManager->initPlugins ();
   }
 
   public function display() {

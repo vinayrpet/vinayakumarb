@@ -6,7 +6,9 @@
  */
 require_once CONFIG_DIR . 'config.php';
 require_once CORE_DIR . 'init.php';
+require_once CORE_DIR . 'autoload.php';
 
 mb_internal_encoding ( 'UTF-8' );
 
+spl_autoload_register(array('Autoload', 'autoload'));
 ?>

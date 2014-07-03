@@ -33,8 +33,16 @@ class ThemeService {
 
   function getDefaultTheme() {
   }
+
+  /**
+   * Initialize the default theme
+   */
+  function initDefaultTheme() {
+    //TODO
+  }
 }
 
+//TODO
 class Theme {
 
   function __construct() {
