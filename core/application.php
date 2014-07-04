@@ -41,7 +41,38 @@ class Application {
     $pluginManager->initPlugins ();
   }
 
-  public function display() {
+  /**
+   * Route the request to corresponding controller
+   */
+  public function handleRequest() {
+    try {
+      RequestHandler::getInstance ()->setDispatchAttrs ( Router::getInstance ()->route () );
+    } catch ( RedirectException $e ) {
+      $this->redirect ( $e->getUrl (), $e->getRedirectCode () );
+    } catch ( InterceptException $e ) {
+      RequestHandler::getInstance ()->setHandlerAttributes ( $e->getHandlerAttrs () );
+    }
+    
+    try {
+      RequestHandler::getInstance()->dispatch ();
+    } catch ( RedirectException $e ) {
+      $this->redirect ( $e->getUrl (), $e->getRedirectCode () );
+    } catch ( InterceptException $e ) {
+      OW::getRequestHandler ()->setHandlerAttributes ( $e->getHandlerAttrs () );
+      $this->handleRequest ();
+    }
+  }
+
+  public function respond() {
+  }
+
+  /**
+   * Redirect the request to another URI
+   * @param string $redirectTo
+   * @param integer $redirectCode
+   */
+  public function redirect($redirectTo, $redirectCode) {
+    URL_Util::redirect ( $redirectTo, $redirectCode );
   }
 }
 ?>

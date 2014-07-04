@@ -9,18 +9,18 @@ define ( 'INSTALL_ROOT_DIR', dirname ( __FILE__ ) . DS );
 // required directories
 define ( 'CORE_DIR', INSTALL_ROOT_DIR . 'core' . DS );
 define ( 'CONFIG_DIR', INSTALL_ROOT_DIR . 'config' . DS );
-// Library directories
+define ( 'VIEW_DIR', INSTALL_ROOT_DIR . 'view' . DS );
 define ( 'LIB_DIR', INSTALL_ROOT_DIR . 'lib' . DS );
 
 require_once CONFIG_DIR . 'init.php';
 
-AppSession::getInstance()->start();
+AppSession::getInstance ()->start ();
 
 $app = Application::getInstance ();
 $app->init ();
 // TODO event management
 // TODO handle routing
-$app->display ();
+$app->respond ();
 // TODO handle final displa
 ?>
 

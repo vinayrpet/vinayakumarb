@@ -139,6 +139,14 @@ class Router {
   }
 
   /**
+   * Set the defaultRoute for the current request
+   * @param Route $defaultRoute
+   */
+  public function setDefaultRoute($defaultRoute) {
+    $this->defaultRoute = $defaultRoute;
+  }
+
+  /**
    * Returns route with provided name.
    * @param string $routeName
    * @return Route
@@ -238,9 +246,9 @@ class Route {
     $this->path = trim ( trim ( $path ), '/' );
     $this->controller = $controller;
     $this->action = $action;
-    $this->params = $params;
     $this->dispatchAttrs [self::DISPATCH_ATTRS_CTRL] = trim ( $controller );
     $this->dispatchAttrs [self::DISPATCH_ATTRS_ACTION] = trim ( $action );
+    $this->params = $params;
   }
 
   /**

@@ -1,10 +1,19 @@
 <?php
 // init.php
 /**
- * This file is to specify all the include files from this directory
+ * This file is to specify all classes for the Autoload
  */
-require_once CORE_DIR . 'application.php';
-require_once CORE_DIR . 'session.php';
-require_once CORE_DIR . 'theme.php';
-require_once CORE_DIR . 'view.php';
+$classArray = array (
+    'Application' => CORE_DIR . 'application.php',
+    'AppSession' => CORE_DIR . 'session.php',
+    'ThemeService' => VIEW_DIR . 'theme.php',
+    'Theme' => VIEW_DIR . 'theme.php',
+    'View' => VIEW_DIR . 'view.php',
+    'MySmarty' => VIEW_DIR . 'view.php',
+    'Router' => CORE_DIR . 'router.php',
+    'Route' => CORE_DIR . 'router.php',
+    'PluginManager' => CORE_DIR . 'plugin.php' 
+);
+
+Autoload::getInstance ()->addClasses ( $classArray );
 ?>
